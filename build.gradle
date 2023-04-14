@@ -1,0 +1,233 @@
+//msdk	
+def M_SDK_VERSION = "4.1.0"	
+def M_SDK_VERSION_FIX = ".4"	
+//pangle	
+def PANGLE_SDK_VERSION = "5.1.0.2"	
+def PANGLE_ADAPTER_VERSION = ".3"	
+//gdt	
+def GDT_SDK_VERSION = "4.514.1384"	
+def GDT_ADAPTER_VERSION = ".2"	
+//ks	
+def KS_SDK_VERSION = "3.3.40"	
+def KS_ADAPTER_VERSION = ".3"	
+//baidu	
+def BAIDU_SDK_VERSION = "9.271"	
+def BAIDU_ADAPTER_VERSION = ".1"	
+//mintegral	
+def MINTEGRAL_SDK_VERSION = "16.4.17"	
+def MINTEGRAL_ADAPTER_VERSION = ".1"	
+//admob	
+def ADMOB_SDK_VERSION = "17.2.0"	
+def ADMOB_ADAPTER_VERSION = ".42"	
+//unity	
+def UNITY_SDK_VERSION = "4.3.0"	
+def UNITY_ADAPTER_VERSION = ".10"	
+//sigmob	
+def SIGMOB_SDK_VERSION = "4.9.0"	
+def SIGMOB_COMMON_SDK_VERSION = "1.4.2"	
+def SIGMOB_ADAPTER_VERSION = ".4"	
+//klevin	
+def KLEVIN_SDK_VERSION = "2.11.0.3"	
+def KLEVIN_ADAPTER_VERSION = ".4"	
+	
+buildscript {	
+    repositories {	
+        jcenter() {	
+            url 'https://maven.aliyun.com/repository/jcenter'	
+        }	
+        maven {	
+            url 'https://maven.aliyun.com/repository/google'	
+        }	
+        maven {	
+            url "https://s3.amazonaws.com/moat-sdk-builds"	
+        }	
+	
+        //GroMore SDK依赖	
+        maven {	
+            url "https://artifact.bytedance.com/repository/pangle"	
+        }	
+	
+        //mintegral sdk依赖   引入mintegral sdk需要添加此maven	
+        maven {	
+            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_support/"	
+        }
+        google()
+    }	
+    dependencies {	
+        classpath 'com.android.tools.build:gradle:7.4.2'
+	
+        // NOTE: Do not place your application dependencies here; they belong	
+        // in the individual module build.gradle files	
+    }	
+}	
+	
+allprojects {	
+    repositories {	
+        jcenter() {	
+            url 'https://maven.aliyun.com/repository/jcenter'	
+        }	
+        maven {	
+            url 'https://maven.aliyun.com/repository/google'	
+        }	
+        maven {	
+            url 'https://maven.google.com/'	
+            name 'Google'	
+        }	
+        maven {	
+            url "https://s3.amazonaws.com/moat-sdk-builds"	
+        }	
+	
+        //GroMore SDK依赖	
+        maven {	
+            url "https://artifact.bytedance.com/repository/pangle"	
+        }	
+	
+        //mintegral sdk依赖   引入mintegral sdk需要添加此maven	
+        maven {	
+            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_support/"	
+        }	
+    }	
+}	
+	
+def SUPPORT_VERSION = "27.1.1"	
+	
+//demo android build.gradle	
+apply plugin: 'com.android.application'	
+	
+android {	
+    signingConfigs {	
+        demo {	
+            keyAlias 'key0'	
+            keyPassword '123456'	
+            storeFile file('open_ad_sdk.keystore')	
+            storePassword '123456'	
+        }	
+    }	
+    compileSdkVersion 31
+    buildToolsVersion '28.0.3'	
+    defaultConfig {	
+        applicationId 'com.union_test.toutiao'	
+        minSdkVersion 19	
+        targetSdkVersion 31
+        versionCode 1	
+        versionName '1.0'	
+        multiDexEnabled true	
+        sourceSets {	
+            main {	
+                manifest.srcFile 'src/main/pbase/AndroidManifest.xml'	
+                java.srcDirs = ['src/main/demo', 'src/main/pbase']	
+	
+            }	
+        }	
+	
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+    }	
+    buildTypes {	
+        debug {	
+            minifyEnabled false	
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'	
+        }	
+        release {	
+            minifyEnabled true	
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'	
+            signingConfig signingConfigs.demo	
+        }	
+    }	
+	
+    compileOptions {	
+        sourceCompatibility 1.8	
+        targetCompatibility 1.8	
+    }	
+}	
+	
+repositories {	
+    flatDir {	
+        dirs 'libs'	
+    }	
+}	
+	
+dependencies {	
+    implementation fileTree(include: ['*.jar'], dir: 'libs')	
+    testImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'	
+    })
+	
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.annotation:annotation:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+
+    // 基本操作	
+    implementation 'com.facebook.stetho:stetho:1.5.0'	
+    // 网络操作--有网络操作添加	
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'	
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'	
+	
+    //GroMore_sdk	
+    implementation "com.gromore.cn:gromore-sdk:${M_SDK_VERSION}${M_SDK_VERSION_FIX}"  //groMore sdk	
+    implementation "com.gromore.cn:gromore-test-tools:${M_SDK_VERSION}${M_SDK_VERSION_FIX}" //groMore 测试工具	
+	
+	
+    //GroMore_sdk adapter	
+    implementation "com.gromore.cn:gdt-adapter:${GDT_SDK_VERSION}${GDT_ADAPTER_VERSION}"	
+    implementation "com.gromore.cn:ks-adapter:${KS_SDK_VERSION}${KS_ADAPTER_VERSION}"	
+    implementation "com.gromore.cn:baidu-adapter:${BAIDU_SDK_VERSION}${BAIDU_ADAPTER_VERSION}"	
+    implementation "com.gromore.cn:mintegral-adapter:${MINTEGRAL_SDK_VERSION}${MINTEGRAL_ADAPTER_VERSION}"	
+    implementation "com.gromore.cn:admob-adapter:${ADMOB_SDK_VERSION}${ADMOB_ADAPTER_VERSION}"	
+    implementation "com.gromore.cn:unity-adapter:${UNITY_SDK_VERSION}${UNITY_ADAPTER_VERSION}"	
+    implementation "com.gromore.cn:sigmob-adapter:${SIGMOB_SDK_VERSION}${SIGMOB_ADAPTER_VERSION}"	
+    implementation "com.gromore.cn:klevin-adapter:${KLEVIN_SDK_VERSION}${KLEVIN_ADAPTER_VERSION}"	
+    implementation "com.gromore.cn:pangle-adapter:${PANGLE_SDK_VERSION}${PANGLE_ADAPTER_VERSION}"	
+	
+	
+    //Baidu	
+    implementation(name: "Baidu_MobAds_SDK_v${BAIDU_SDK_VERSION}", ext: 'aar')	
+	
+    //unity	
+    implementation(name: "unity-ads-${UNITY_SDK_VERSION}", ext: 'aar')	
+	
+    //pangle	
+    implementation(name: "open_ad_sdk_${PANGLE_SDK_VERSION}", ext: 'aar')	
+	
+    //GDT	
+//    implementation "com.qq.e.union:union:${GDT_SDK_VERSION}"	
+    implementation(name: "GDTSDK.unionNormal.${GDT_SDK_VERSION}", ext: 'aar')	
+	
+    //admob	
+    implementation("com.google.android.gms:play-services-ads:${ADMOB_SDK_VERSION}") {	
+        exclude group: 'com.android.support'	
+    }	
+	
+    //ks 快手	
+    implementation(name: "kssdk-ad-${KS_SDK_VERSION}", ext: 'aar')	
+    //sigmob	
+    implementation(name: "windAd-${SIGMOB_SDK_VERSION}", ext: 'aar')	
+    implementation(name: "windAd-common-${SIGMOB_COMMON_SDK_VERSION}", ext: 'aar')	
+	
+    //klevin	
+    implementation(name: "klevinSDK_${KLEVIN_SDK_VERSION}", ext: 'aar')	
+	
+    //mtg	
+    implementation("com.mbridge.msdk.support:videojs:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:mbjscommon:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:playercommon:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:reward:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:videocommon:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:chinasame:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:interstitialvideo:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:mbnative:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:nativeex:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:mbnativeadvanced:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:interstitial:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:mbbanner:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:mbsplash:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:mbbid:${MINTEGRAL_SDK_VERSION}")	
+    implementation("com.mbridge.msdk.support:newinterstitial:${MINTEGRAL_SDK_VERSION}")	
+	
+}	
+	
+	
+	
+	

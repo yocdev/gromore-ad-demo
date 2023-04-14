@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+
+    <Button
+        android:id="@+id/pre_load"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="预缓存示例"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="banner广告"
+        android:textSize="14sp" />
+    <Button
+        android:id="@+id/splashAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开屏广告"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_main_full"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="全屏视频"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/interstitial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="插屏"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_main_reward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="激励视频"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/feedM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="feed信息流"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/interstitialFull"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="插全屏"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/draw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="draw广告"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/change_user_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="更改用户分组信息配置"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="tools"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/test_tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试工具入口"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tx_sdk_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textSize="16sp" />
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+
+    <Button
+        android:id="@+id/pre_load_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="预缓存banner广告"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/pre_load_full_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="预缓存全屏广告"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/pre_load_interstitial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="预缓存插屏广告"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/pre_load_reward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="预缓存激励视频广告"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/pre_load_interstitial_full"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="预缓存插全屏视频广告"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/pre_load_feed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="预缓存信息流广告"
+        android:textSize="14sp" />
+
+
+</LinearLayout>

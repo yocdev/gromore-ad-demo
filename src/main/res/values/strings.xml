@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">tt_ad_mediation</string>
+    <integer name="google_play_services_version">12451000</integer>
+    <string name="ad_unit_id">当前广告位id位：%1$s</string>
+    <string name="horizontal_ad_unit_id">当前横屏广告位id位：%1$s</string>
+    <string name="vertical_ad_unit_id">当前竖屏广告位id位：%1$s</string>
+
+
+    <!--    广告位id    -->
+    <string name="banner_unit_id">945493677</string>
+    <string name="banner_bidding_unit_id">102070106</string>
+    <string name="splash_unit_id">887382967</string>
+    <string name="splash_bidding_unit_id">102075369</string>
+    <string name="full_video_horizontal_unit_id">945493675</string>
+    <string name="full_video_vertical_unit_id">945493676</string>
+    <string name="full_video_bidding_unit_id">945493675</string>
+    <string name="interstitial_unit_id">945493679</string>
+    <string name="interstitial_bidding_unit_id">945493679</string>
+    <string name="feed_native_unit_id">102274356</string>
+    <string name="feed_express_unit_id">102274459</string>
+    <string name="feed_mix_unit_id">945700641</string>
+    <string name="feed_bidding_unit_id">102070108</string>
+    <string name="reward_horizontal_unit_id">945700410</string>
+    <string name="reward_vertical_unit_id">945493668</string>
+    <string name="reward_bidding_unit_id">102070107</string>
+
+    <string name="interstitial_full_unit_id">102282159</string>
+    <string name="interstitial_full_bidding_unit_id">102068464</string>
+    <string name="draw_express_unit_id">102275352</string>
+    <string name="draw_unit_id">102273842</string>
+    <string name="draw_bidding_unit_id">102069553</string>
+
+
+    <!--    信息输出    -->
+    <string name="show_info">展示的广告信息 ：代码位id = %1$s adnName = %2$s ecpm = %3$s </string>
+
+</resources>
